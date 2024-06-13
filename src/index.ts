@@ -5,14 +5,16 @@ const app: express.Application = express();
 const port = 3000;
 
 app.use(express.text());
+app.set("view engine", "ejs");
 
 app.listen(port, () => {
   console.log(`server is listening on ${port}`);
 });
 
 // Homepage
-app.get('/', (req: express.Request, res: express.Response) => {
-  res.status(200).send("Hello World!");
+
+app.get("", (req: express.Request, res: express.Response) => {
+  res.render("home");
 });
 
 // GET
