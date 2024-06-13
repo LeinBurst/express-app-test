@@ -1,12 +1,12 @@
 // src/index.ts
 import express from 'express';
-
+import path from 'path';
 const app: express.Application = express();
 const port = 3000;
 
 app.use(express.text());
 app.set("view engine", "ejs");
-
+app.set("views", path.join(__dirname, "./static/"));
 app.listen(port, () => {
   console.log(`server is listening on ${port}`);
 });
